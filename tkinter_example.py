@@ -31,18 +31,24 @@ class InputForm(ttk.Frame):
         self.entry.grid(row=0, column=0, sticky="ew")
 
         self.text_list = tk.Listbox(self)
-        self.text_list.grid(row=1, column=0, columnspan=2, sticky="nsew")
+        self.text_list.grid(row=1, column=0, columnspan=3, sticky="nsew")
 
         self.entry.bind("<Return>", self.add_to_list)
 
         self.entry_btn = ttk.Button(self, text="Add", command=self.add_to_list)
         self.entry_btn.grid(row=0, column=1)
+
+        self.entry_btn2 = ttk.Button(self, text="Clear", command=self.clear_list)
+        self.entry_btn2.grid(row=0, column=2)
     
-    def add_to_list(self, event=None):
+    def add_to_list(self, _event=None):
         text = self.entry.get()
         if text:
             self.text_list.insert(tk.END, text)
             self.entry.delete(0, tk.END)
+    
+    def clear_list(self):
+        self.text_list.delete(0, tk.END)
 
 
 if __name__ == "__main__":
