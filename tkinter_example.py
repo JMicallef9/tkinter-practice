@@ -45,7 +45,7 @@ class InputForm(ttk.Frame):
             self.entry.delete(0, tk.END)
 
 
-if __name__() == "__main__":
+if __name__ == "__main__":
     main()
 
 
